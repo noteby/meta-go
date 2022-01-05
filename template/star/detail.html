@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+
+{% block ext_css %}
+<link href='/static/css/froala_editor-4.0.8.min.css' rel='stylesheet' type='text/css' />
+<link rel="stylesheet" href="/static/css/star.css">
+{% endblock %}
+
+
+{% block main %}
+<div class="star-detail">
+    {% if result.star %}
+    <div class="title">{{ result.star.Title }}</div>
+    <div class="attach">
+        <span class="item">发布于 {{result.star.CreatedAt.Format("2006/01/02 15:04:05")}}</span>
+        {% if user.isLogin and user.id == result.star.AuthorID %}
+        <span class="item"><a href="/star/my/edit?id={{result.star.ID}}">编辑</a></span>
+        {% endif %}
+    </div>
+    <hr>
+    <div class="content">
+        <div class="fr-view">
+            {{ result.star.Content }}
+        </div>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

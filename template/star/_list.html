@@ -1,0 +1,20 @@
+{% if result.stars %}
+<div class="star-list">
+    <div class="line-top"></div>
+    {% for star in result.stars %}
+    <div class="star">
+        <div class="title"><a href="/star/detail?id={{star.ID}}">{{ star.Title }}</a></div>
+        <div class="created-at">发布于 {{ star.CreatedAt.Format("2006/01/02 15:04:05") }}</div>
+    </div>
+    {% if not forloop.Last %}
+    <div class="line-bottom"></div>
+    {% endif %}
+    {% endfor %}
+
+
+    {% include "star/_pagination.html" %}
+
+</div>
+{% else %}
+<div class="empty-star-list">暂无数据</div>
+{% endif %}

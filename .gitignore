@@ -1,0 +1,9 @@
+# Air
+.air.toml
+
+# Project
+_test/
+tmp/
+
+# VSCode
+.vscode/

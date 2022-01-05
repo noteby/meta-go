@@ -1,0 +1,121 @@
+/* star list */
+.star-list {
+    margin: 30px 10px;
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+    .star-list {
+        margin: 30px 100px;
+    }
+} 
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+    .star-list {
+        margin: 30px 180px;
+    }
+} 
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+    .star-list {
+        margin: 30px 240px;
+    }
+}
+
+.empty-star-list {
+    margin-top: 200px;
+    text-align: center;
+}
+
+.star-list .line-top {
+    height: 1px;
+    width: 100%;
+    border-top: solid #ccc 2px;
+    margin-bottom: 20px;
+}
+
+.star-list .line-bottom {
+    height: 1px;
+    width: 100%;
+    border-top: solid #ccc 1px;
+    margin-top: 3px;
+    margin-bottom: 5px;
+}
+
+.star-list .star .title {
+    font-size: 18px;
+}
+
+.star-list .star .title a {
+    text-decoration: none;
+}
+
+.star-list .star .created-at {
+    text-align: right;
+    font-size: x-small;
+}
+
+/* star detail */
+.star-detail {
+    margin: 30px 10px;
+}
+
+.star-detail .title {
+    font-size: larger;
+    text-align: center;
+}
+
+.star-detail .attach {
+    font-size: x-small;
+    text-align: right;
+    margin-top: 10px;
+}
+
+.star-detail .attach a {
+    text-decoration: none;
+}
+
+.star-detail .attach .item {
+    margin: 0 3px;
+}
+/* add and edit */
+.star-add, .star-edit {
+    margin-top: 30px;
+}
+
+.star-add .label, .star-edit .label {
+    font-size: smaller;
+    margin: 5px 0;
+}
+
+.star-add #title, .star-edit #title {
+    outline-style: none;
+    border: 1px solid #ccc; 
+    border-radius: 3px;
+    width: calc(100% - 18px);
+
+    padding: 8px;
+    font-size: 15px;
+}
+
+.star-add .submit, .star-edit .submit {
+    margin-top: 5px;
+    text-align: right;
+}
+
+/* pagination */
+.pagination {
+    margin-top: 30px;
+}
+
+.pagination a {
+    margin-right: 12px;
+    text-decoration: none;
+}
+
+.pagination a.curr-page {
+    cursor: text;
+    text-decoration-line: underline;
+}

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="/static/css/base.css">
+
+    <script src="/static/js/jquery-3.6.0.min.js"></script>
+
+    {% block ext_css %}{% endblock %}
+    {% block ext_js %}{% endblock %}
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <nav>
+                <div class="index">
+                    <a href="/star/index">Formeta</a>
+                </div>
+                <div class="item">
+                    {% if user.isLogin %}
+                    <a href="/star/my/list">我的</a>
+                    <a href="/star/my/add">新增</a>
+                    <a href="/auth/logout">退出</a>
+                    {% else %}
+                    <a href="/auth/login">登录</a>
+                    <a href="/auth/register">注册</a>
+                    {% endif %}
+                </div>
+            </nav>
+        </header>
+        <main>
+            {% block alert %}
+            {% if alert.warn %}
+            <div class="alert-warn">
+                {{ alert.warn}}
+            </div>
+            {% elif alert.info %}
+            <div class="alert-info">
+                {{ alert.info}}
+            </div>
+            {% endif %}
+            {% endblock %}
+
+            {% block main %}{% endblock %}
+        </main>
+
+        <footer>
+            © 2021 Formeta, Inc
+        </footer>
+    </div>
+
+    {% block ext_js2 %}{% endblock %}
+</body>
+
+</html>

@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+
+{% block ext_css %}
+<link rel="stylesheet" href="/static/css/star.css">
+{% endblock %}
+
+
+{% block main %}
+<div class="my-star">
+
+    {% include 'star/_list.html' %}
+
+</div>
+{% endblock %}

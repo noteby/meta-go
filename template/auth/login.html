@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+
+{% block ext_css %}
+<link rel="stylesheet" href="/static/css/auth.css">
+{% endblock %}
+
+
+{% block main %}
+<div class="auth">
+    <form class="login" method="post" action="login">
+        <div>
+            <input type="text" name="username" placeholder="用户名">
+        </div>
+        <div>
+            <input type="password" name="password" placeholder="密码">
+        </div>
+        <div>
+            <input type="submit" value="登录">
+        </div>
+    </form>
+</div>
+{% endblock %}

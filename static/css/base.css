@@ -1,0 +1,56 @@
+html, body {
+    height: 100%;
+    margin: 0 8px;
+}
+
+body div.container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+}
+
+header {
+    flex-grow: 0;
+    margin-top: 10px;
+}
+
+header nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: baseline;
+}
+
+header nav a {
+    text-decoration: none;
+}
+
+header nav .index {
+    font-size: 20px;
+}
+
+header nav .item {
+    font-size: 14px;
+}
+
+main {
+    flex-grow: 1;
+}
+
+main .alert-warn {
+    text-align: center;
+    background-color: red;
+    font-size: smaller;
+}
+
+main .alert-info {
+    text-align: center;
+    background-color: green;
+    font-size: smaller;
+}
+
+footer {
+    flex-grow: 0;
+    font-size: x-small;
+    text-align: center;
+}

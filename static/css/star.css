@@ -105,6 +105,10 @@
     text-align: right;
 }
 
+.star-add .title input::placeholder, .star-edit .title input::placeholder {
+    font-size: 12px;
+}
+
 /* pagination */
 .pagination {
     margin-top: 30px;

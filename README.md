@@ -103,3 +103,13 @@ go get -u github.com/cosmtrek/air
 air init 
 # 配置介绍 https://github.com/cosmtrek/air/blob/master/air_example.toml
 ```
+
+> fr-editor 20211220
+```
+license 提示定位：
+_init: function k()
+var d = new Image;
+
+底部 logo 定位
+<span>Powered by</span>
+```

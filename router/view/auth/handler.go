@@ -51,7 +51,7 @@ func (handler) postLogin() fiber.Handler {
 		c.Cookie(&fiber.Cookie{
 			Name:     "login_info",
 			Value:    user.Username,
-			Expires:  time.Now().Add(1 * time.Hour),
+			Expires:  time.Now().Add(7 * 24 * time.Hour),
 			SameSite: "Lax",
 		})
 

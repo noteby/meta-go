@@ -8,6 +8,10 @@ import (
 )
 
 func Register(app *fiber.App) {
+	app.Get("/", func(c *fiber.Ctx) error {
+		return c.Redirect("/star/index")
+	})
+
 	auth.NewRouter(app.Group("auth/"))
 	star.NewRouter(app.Group("star/"))
 }

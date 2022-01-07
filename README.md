@@ -50,7 +50,7 @@ sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O 
 删除 MySQL
 # yum -y remove mysql80-community-release-el7-1.noarch
 
-重新配置安装源
+重新配置安装源（https://dev.mysql.com/downloads/repo/yum/）
 # rpm -Uvh https://dev.mysql.com/get/mysql80-community-release-el7-3.noarch.rpm
 
 安装
@@ -83,8 +83,8 @@ mysql> show variables like 'validate_password.%';
 设置密码复杂度
 mysql> set global validate_password.policy=0;
 
-设置远程访问
-mysql> alter user root@'%' identified by "password";
+设置可远程访问主机
+mysql> create user root@'%' identified by "password";
 
 设置权限
 mysql> grant all privileges on *.* to root@'%' with grant option;

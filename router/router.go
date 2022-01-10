@@ -12,6 +12,6 @@ func Register(app *fiber.App) {
 		return c.Redirect("/star/index")
 	})
 
-	auth.NewRouter(app.Group("auth/"))
+	auth.NewRouter(app.Group("mkzt/auth/"))
 	star.NewRouter(app.Group("star/"))
 }

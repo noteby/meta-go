@@ -8,6 +8,7 @@ import (
 
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/middleware/encryptcookie"
+	"github.com/gofiber/fiber/v2/middleware/favicon"
 	"github.com/gofiber/template/django"
 
 	"meta-go/db"
@@ -22,14 +23,17 @@ func main() {
 		Views:   django.New("./template", ".html"),
 	})
 
+	app.Static("/static", "./static")
+
 	app.Use(
 		encryptcookie.New(encryptcookie.Config{
 			Key: "vtDs1VZzSZ+flREhrrybKFBY8j1K8g0NyvRmv9+8MRA=",
 		}),
+		favicon.New(favicon.Config{
+			File: "./static/favicon.ico",
+		}),
 		middleware.UserAuth(),
 	)
-
-	app.Static("/static", "./static")
 
 	db.Init()
 	router.Register(app)

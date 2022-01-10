@@ -3,6 +3,7 @@
 
 # Project
 _test/
+bin/
 tmp/
 
 # System

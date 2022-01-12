@@ -26,6 +26,7 @@ func main() {
 	app.Static("/static", "./static")
 
 	app.Use(
+		middleware.Gate(),
 		encryptcookie.New(encryptcookie.Config{
 			Key: "vtDs1VZzSZ+flREhrrybKFBY8j1K8g0NyvRmv9+8MRA=",
 		}),

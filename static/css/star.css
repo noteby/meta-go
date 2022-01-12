@@ -100,6 +100,11 @@
     font-size: 15px;
 }
 
+.star-add #public, .star-edit #public {
+    outline-style: none;
+    border: 1px solid yellow;
+}
+
 .star-add .submit, .star-edit .submit {
     margin-top: 5px;
     text-align: right;
@@ -112,6 +117,10 @@
 /* pagination */
 .pagination {
     margin-top: 30px;
+    font-size: 15px;
+
+    display: inline-flex;
+    flex-wrap: wrap;
 }
 
 .pagination a {

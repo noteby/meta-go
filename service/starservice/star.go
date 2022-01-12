@@ -10,16 +10,17 @@ import (
 )
 
 // 获取star列表
-func GetStarList(authorID uint, offset, limit int) ([]model.Star, int64, error) {
+func GetStarList(authorID uint, public bool, offset, limit int) ([]model.Star, int64, error) {
 	var stars []model.Star
 	var count int64
+	star := model.Star{AuthorID: authorID, Public: public}
 	if err := db.Conn().Model(&model.Star{}).Where(
-		&model.Star{AuthorID: authorID},
+		&star,
 	).Count(&count).Error; err != nil {
 		return stars, count, err
 	}
 	err := db.Conn().Offset(offset).Limit(limit).Order("created_at desc").Where(
-		&model.Star{AuthorID: authorID},
+		&star,
 	).Find(&stars).Error
 	return stars, count, err
 }
@@ -35,10 +36,11 @@ func GetStarDetail(authorID, starId uint) (model.Star, error) {
 }
 
 // 新增star
-func AddStar(authorID uint, title string, content string) error {
+func AddStar(authorID uint, public bool, title string, content string) error {
 	star := model.Star{
 		AuthorID: authorID,
 		Title:    title,
+		Public:   public,
 		Content:  content,
 	}
 	err := db.Conn().Create(&star).Error
@@ -46,7 +48,7 @@ func AddStar(authorID uint, title string, content string) error {
 }
 
 // 更新star
-func UpdateStar(authorID, starId uint, title, content string) error {
+func UpdateStar(authorID, starId uint, public bool, title, content string) error {
 	return db.Conn().Transaction(func(tx *gorm.DB) error {
 		// 获取star
 		var star model.Star
@@ -56,6 +58,7 @@ func UpdateStar(authorID, starId uint, title, content string) error {
 			return errors.New("记录不存在")
 		}
 		star.Title = title
+		star.Public = public
 		star.Content = content
 		err = tx.Save(&star).Error
 		return err

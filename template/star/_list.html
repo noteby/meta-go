@@ -4,7 +4,16 @@
     {% for star in result.stars %}
     <div class="star">
         <div class="title"><a href="/star/detail?id={{star.ID}}">{{ star.Title }}</a></div>
-        <div class="created-at">发布于 {{ star.CreatedAt.Format("2006/01/02 15:04:05") }}</div>
+        <div class="created-at">
+            发布于 {{ star.CreatedAt.Format("2006/01/02 15:04:05") }}
+            {% if result.listUrl == '/star/my/list' %}
+            {% if star.Public %}
+            ｜ 公开
+            {% else %}
+            ｜ 隐藏
+            {% endif %}
+            {% endif %}
+        </div>
     </div>
     {% if not forloop.Last %}
     <div class="line-bottom"></div>

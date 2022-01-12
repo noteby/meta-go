@@ -19,6 +19,11 @@
     <div class="attach">
         <span class="item">发布于 {{result.star.CreatedAt.Format("2006/01/02 15:04:05")}}</span>
         {% if user.isLogin and user.id == result.star.AuthorID %}
+        {% if result.star.Public %}
+        ｜ 公开
+        {% else %}
+        ｜ 隐藏
+        {% endif %}
         <span class="item"><a href="/star/my/edit?id={{result.star.ID}}">编辑</a></span>
         {% endif %}
     </div>

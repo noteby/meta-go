@@ -17,6 +17,7 @@ type Star struct {
 	gorm.Model
 	//
 	AuthorID uint
+	Public   bool
 	Title    string `gorm:"size:36"`
 	Content  string
 }

@@ -4,27 +4,28 @@
     {% if result.currPage > 1 %}
     <a class="previous-page"
         href="{{result.listUrl}}?offset={{(result.currPage-2)*result.limit}}&limit={{result.limit}}">
-        上一页
+        &lt;
     </a>
     {% endif %}
+
     {% for page in result.pageRange %}
-    <span>
-        {% if page == result.currPage %}
-        <a class="curr-page">
-            {{page}}
-        </a>
-        {% else %}
-        <a class="page" href="{{result.listUrl}}?offset={{(page-1)*result.limit}}&limit={{result.limit}}">
-            {{page}}
-        </a>
-        {% endif %}
-    </span>
+    {% if page == result.currPage %}
+    <a class="curr-page">
+        {{page}}
+    </a>
+    {% else %}
+
+    <a class="page" href="{{result.listUrl}}?offset={{(page-1)*result.limit}}&limit={{result.limit}}">
+        {{page}}
+    </a>
+    {% endif %}
     {% endfor %}
 
     {% if result.currPage < result.totalPage %} <a class="next-page"
         href="{{result.listUrl}}?offset={{(result.currPage)*result.limit}}&limit={{result.limit}}">
-        下一页
+        &gt;
         </a>
         {% endif %}
+
 </div>
 {% endif %}

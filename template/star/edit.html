@@ -20,8 +20,16 @@
     <form action="edit" method="post">
         <input type="text" name="id" value="{{result.star.ID}}" hidden>
         <div class="label"><label for="title">标题：</label></div>
-        <div class="title"><input ID="title" type="text" name="title" placeholder="标题（不超过36个字符）"
+        <div class="title"><input id="title" type="text" name="title" placeholder="标题（不超过36个字符）"
                 value="{{result.star.Title}}">
+        </div>
+        <div class="label"><label for="public">公开：</label></div>
+        <div>
+            {% if result.star.Public %}
+            <input type="checkbox" id="public" name="public" value="1" checked>
+            {% else %}
+            <input type="checkbox" id="public" name="public" value="1">
+            {% endif %}
         </div>
         <div class="label"><label for="content">内容：</label></div>
         <div><input id="content" type="text" name="content" style="display:none"></div>

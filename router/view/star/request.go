@@ -3,12 +3,14 @@ package star
 type CreateStarRequest struct {
 	Title   string `validate:"required,max=36"`
 	Content string `validate:"required"`
+	Public  bool
 }
 
 type UpdateStarRequest struct {
 	ID      uint   `validate:"required"`
 	Title   string `validate:"required,max=36"`
 	Content string `validate:"required"`
+	Public  bool
 }
 
 type StarIDRequest struct {

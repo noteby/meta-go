@@ -3,6 +3,7 @@ module meta-go
 go 1.17
 
 require (
+	github.com/flosch/pongo2/v4 v4.0.2
 	github.com/gofiber/fiber/v2 v2.23.0
 	gorm.io/driver/mysql v1.2.2
 	gorm.io/gorm v1.22.4
@@ -10,7 +11,6 @@ require (
 
 require (
 	github.com/andybalholm/brotli v1.0.4 // indirect
-	github.com/flosch/pongo2/v4 v4.0.2 // indirect
 	github.com/go-playground/locales v0.14.0 // indirect
 	github.com/go-playground/universal-translator v0.18.0 // indirect
 	github.com/go-playground/validator/v10 v10.9.0

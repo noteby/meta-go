@@ -14,6 +14,7 @@ import (
 	"meta-go/db"
 	"meta-go/router"
 	"meta-go/util/middleware"
+	_ "meta-go/util/template"
 )
 
 func main() {

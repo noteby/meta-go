@@ -4,16 +4,22 @@
     {% for star in result.stars %}
     <div class="star">
         <div class="title"><a href="/star/detail?id={{star.ID}}">{{ star.Title }}</a></div>
-        <div class="created-at">
-            <span>发布于 {{ star.CreatedAt.Format("2006.01.02 15:04:05") }}</span>
+        <div class="attach">
             {% if result.listUrl == '/star/my/list' %}
-            | <span>更新 {{ star.UpdatedAt.Format("2006.01.02 15:04:05") }}</span> |
-            {% if star.Public %}
-            <span>公开</span>
-            {% else %}
-            <span>隐藏</span>
+            <div>
+                {% if star.UpdatedAt != star.CreatedAt %}
+                <span>{{ star.UpdatedAt|timesince }} 更新过</span> |
+                {% endif %}
+                {% if star.Public %}
+                <span>公开</span>
+                {% else %}
+                <span>隐藏</span>
+                {% endif %}
+            </div>
             {% endif %}
-            {% endif %}
+            <div>
+                <span>发布于 {{ star.CreatedAt|timesince }}</span>
+            </div>
         </div>
     </div>
     {% if not forloop.Last %}

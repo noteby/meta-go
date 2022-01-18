@@ -52,9 +52,10 @@
     text-decoration: none;
 }
 
-.star-list .star .created-at {
+.star-list .star .attach {
     text-align: right;
     font-size: x-small;
+    color: #008C8C;
 }
 
 /* star detail */
@@ -77,9 +78,10 @@
     text-decoration: none;
 }
 
-.star-detail .attach .item {
-    margin: 0 3px;
+.star-detail .content {
+    margin-top: 30px;
 }
+
 /* add and edit */
 .star-add, .star-edit {
     margin-top: 30px;
@@ -117,14 +119,14 @@
 /* pagination */
 .pagination {
     margin-top: 30px;
-    font-size: 15px;
+    font-size: 16px;
 
     display: inline-flex;
     flex-wrap: wrap;
 }
 
 .pagination a {
-    margin-right: 12px;
+    margin-right: 15px;
     text-decoration: none;
 }
 

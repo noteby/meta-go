@@ -119,12 +119,12 @@ func (handler) createStar() fiber.Handler {
 		}
 		req := &CreateStarRequest{}
 		if err := view.ValidateRequestBody(c, req); err != nil {
-			return c.Render("star/add", view.RespWithWarn(c, err.Error()))
+			return c.Render("star/add", view.RespWithWarn(c, err.Error(), fiber.Map{"star": req}))
 		}
 		user := c.UserContext().Value("user").(model.User)
 		err := starservice.AddStar(user.ID, req.Public, req.Title, req.Content)
 		if err != nil {
-			return c.Render("star/add", view.RespWithWarn(c, err.Error()))
+			return c.Render("star/add", view.RespWithWarn(c, err.Error(), fiber.Map{"star": req}))
 		}
 		return c.Redirect("/star/my/list")
 	}

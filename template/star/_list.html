@@ -5,12 +5,13 @@
     <div class="star">
         <div class="title"><a href="/star/detail?id={{star.ID}}">{{ star.Title }}</a></div>
         <div class="created-at">
-            发布于 {{ star.CreatedAt.Format("2006/01/02 15:04:05") }}
+            <span>发布于 {{ star.CreatedAt.Format("2006.01.02 15:04:05") }}</span>
             {% if result.listUrl == '/star/my/list' %}
+            | <span>更新 {{ star.UpdatedAt.Format("2006.01.02 15:04:05") }}</span> |
             {% if star.Public %}
-            ｜ 公开
+            <span>公开</span>
             {% else %}
-            ｜ 隐藏
+            <span>隐藏</span>
             {% endif %}
             {% endif %}
         </div>

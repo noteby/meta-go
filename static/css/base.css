@@ -61,3 +61,13 @@ main .error-text {
     font-size: 18px;
     color: #ccc;
 }
+
+/* fr */
+.fr-class-code {
+    padding: 3px !important;
+}
+
+pre {
+    background-color: #ccc;
+    padding: 5px;
+}

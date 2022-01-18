@@ -9,7 +9,7 @@ $(document).ready(function () {
             'buttons': ['alignLeft', 'alignCenter', 'formatOLSimple', 'alignRight', 'alignJustify', 'formatOL', 'formatUL', 'paragraphFormat', 'paragraphStyle', 'lineHeight', 'outdent', 'indent', 'quote']
         },
         'moreRich': {
-            'buttons': ['insertImage', 'insertTable', 'emoticons', 'insertHR', 'specialCharacters'],
+            'buttons': ['insertImage', 'insertTable', 'emoticons', 'insertHR', 'specialCharacters', 'markdown'],
             'buttonsVisible': 2
         },
         'moreMisc': {
@@ -29,7 +29,7 @@ $(document).ready(function () {
             'buttonsVisible': 0
         },
         'moreRich': {
-            'buttons': ['insertImage', 'insertTable', 'emoticons', 'insertHR', 'specialCharacters'],
+            'buttons': ['insertImage', 'insertTable', 'emoticons', 'insertHR', 'specialCharacters', 'markdown'],
             'buttonsVisible': 0
         },
         'moreMisc': {
@@ -58,16 +58,29 @@ $(document).ready(function () {
         imageDefaultAlign: 'left',
         imageInsertButtons: ['imageUpload', 'imageManager'],
 
+        // Line Breaker
+        lineBreakerTags: ['table', 'hr', 'form', 'dl', 'span.fr-video', '.fr-embedly', '.fr-img-caption', 'pre'],
+
         // Link
         linkAlwaysBlank: true,
         linkInsertButtons: [],
         linkText: true,
+
+        // Paragraph Format
+        paragraphFormat:{
+            N: 'Normal',
+            H1: 'Heading 1',
+            H2: 'Heading 2',
+            H3: 'Heading 3',
+            H4: 'Heading 4',
+            PRE: 'Pre'
+        },
 
         // Quick Insert
         quickInsertEnabled: false,
     });
 
     $("#save").click(function () {
-        $("#content").val(editor.html.get());
+        $("#content").text(editor.html.get());
     });
 });

@@ -80,7 +80,6 @@
 }
 
 .star-detail .attach .publish {
-    text-decoration: none;
     display: flex;
     justify-content: space-between;
 }

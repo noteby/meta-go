@@ -17,7 +17,7 @@ username=$username
 gituser=$gituser
 gitpass=$gitpass
 
-expect << EOF
+expect<<-EOF
     set timeout 20
 
     spawn ssh $username@$hostname

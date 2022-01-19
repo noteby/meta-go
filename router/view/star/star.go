@@ -11,7 +11,7 @@ func NewRouter(router fiber.Router) {
 	router.Get("list", starHandler.list(false))
 	router.Get("detail", starHandler.detail())
 
-	router.Post("media/upload", starHandler.mediaUpload())
+	router.Post("media/upload", middleware.LoginRequired(), starHandler.mediaUpload())
 	router.Get("media/:name", starHandler.getMedia())
 	//
 	my := router.Group("my/", middleware.LoginRequired())

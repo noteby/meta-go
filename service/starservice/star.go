@@ -73,7 +73,7 @@ func UpdateStar(authorID, starId uint, public bool, title, content string) error
 }
 
 // 保存媒体文件
-func SaveMedia(file *multipart.FileHeader) (model.Media, error) {
+func SaveMedia(userID uint, file *multipart.FileHeader) (model.Media, error) {
 	var media model.Media
 
 	now := time.Now()
@@ -89,6 +89,7 @@ func SaveMedia(file *multipart.FileHeader) (model.Media, error) {
 
 	name := utils.UUIDv4()
 	media = model.Media{
+		UserID:      userID,
 		Name:        name,
 		UrlPath:     fmt.Sprintf("/star/media/%s", name),
 		OriName:     file.Filename,

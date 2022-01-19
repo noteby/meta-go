@@ -56,7 +56,8 @@ $(document).ready(function () {
 
         // Image
         imageDefaultAlign: 'left',
-        imageInsertButtons: ['imageUpload', 'imageManager'],
+        imageInsertButtons: ['imageUpload'],
+        imageMaxSize: 1024 * 1024 * 20, // 20MB
         imageUploadParam: "media",
         imageUploadURL: "/star/media/upload",
 

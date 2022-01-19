@@ -164,7 +164,8 @@ func (handler) mediaUpload() fiber.Handler {
 		if err != nil {
 			return c.JSON(fiber.Map{"error": err.Error()})
 		}
-		media, err := starservice.SaveMedia(file)
+		user := c.UserContext().Value("user").(model.User)
+		media, err := starservice.SaveMedia(user.ID, file)
 		if err != nil {
 			return c.JSON(fiber.Map{"error": err.Error()})
 		}

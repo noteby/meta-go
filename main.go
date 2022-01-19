@@ -20,8 +20,9 @@ import (
 func main() {
 
 	app := fiber.New(fiber.Config{
-		AppName: "meta-go",
-		Views:   django.New("./template", ".html"),
+		AppName:   "meta-go",
+		BodyLimit: 1024 * 1024 * 20,
+		Views:     django.New("./template", ".html"),
 	})
 
 	app.Static("/static", "./static")

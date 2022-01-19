@@ -29,6 +29,7 @@ func (Star) TableName() string {
 type Media struct {
 	gorm.Model
 	//
+	UserID      uint
 	Name        string `gorm:"uniqueIndex;size:56"`
 	UrlPath     string `gorm:"size:128"`
 	OriName     string `gorm:"size:56"`

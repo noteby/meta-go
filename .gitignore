@@ -4,6 +4,7 @@
 # Project
 _test/
 bin/
+storage/
 tmp/
 deploy.ini
 

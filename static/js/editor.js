@@ -57,6 +57,8 @@ $(document).ready(function () {
         // Image
         imageDefaultAlign: 'left',
         imageInsertButtons: ['imageUpload', 'imageManager'],
+        imageUploadParam: "media",
+        imageUploadURL: "/star/media/upload",
 
         // Line Breaker
         lineBreakerTags: ['table', 'hr', 'form', 'dl', 'span.fr-video', '.fr-embedly', '.fr-img-caption', 'pre'],

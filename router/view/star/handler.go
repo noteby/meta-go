@@ -157,3 +157,28 @@ func (handler) updateStar() fiber.Handler {
 		return c.Render("star/edit", view.RespWithInfo(c, "修改成功", fiber.Map{"star": req}))
 	}
 }
+
+func (handler) mediaUpload() fiber.Handler {
+	return func(c *fiber.Ctx) error {
+		file, err := c.FormFile("media")
+		if err != nil {
+			return c.JSON(fiber.Map{"error": err.Error()})
+		}
+		media, err := starservice.SaveMedia(file)
+		if err != nil {
+			return c.JSON(fiber.Map{"error": err.Error()})
+		}
+		return c.JSON(fiber.Map{"link": media.UrlPath})
+	}
+}
+
+func (handler) getMedia() fiber.Handler {
+	return func(c *fiber.Ctx) error {
+		name := c.Params("name")
+		media, err := starservice.GetMedia(name)
+		if err != nil {
+			return c.JSON(fiber.Map{"error": err.Error()})
+		}
+		return c.SendFile(media.StoragePath, false)
+	}
+}

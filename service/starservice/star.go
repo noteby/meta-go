@@ -2,11 +2,18 @@ package starservice
 
 import (
 	"errors"
+	"fmt"
 	"log"
 	"meta-go/db"
 	"meta-go/model"
+	"mime/multipart"
+	"os"
+	"time"
 
 	"gorm.io/gorm"
+
+	"github.com/gofiber/fiber/v2/utils"
+	"github.com/valyala/fasthttp"
 )
 
 // 获取star列表
@@ -63,4 +70,42 @@ func UpdateStar(authorID, starId uint, public bool, title, content string) error
 		err = tx.Save(&star).Error
 		return err
 	})
+}
+
+// 保存媒体文件
+func SaveMedia(file *multipart.FileHeader) (model.Media, error) {
+	var media model.Media
+
+	now := time.Now()
+	storageDir := fmt.Sprintf("./storage/media/%s", now.Format("200601"))
+	if err := os.MkdirAll(storageDir, 0777); err != nil {
+		return media, err
+	}
+	storagePath := fmt.Sprintf("%s/%d_%s", storageDir, now.UnixMilli(), file.Filename)
+
+	if err := fasthttp.SaveMultipartFile(file, storagePath); err != nil {
+		return media, err
+	}
+
+	name := utils.UUIDv4()
+	media = model.Media{
+		Name:        name,
+		UrlPath:     fmt.Sprintf("/star/media/%s", name),
+		OriName:     file.Filename,
+		ContentType: file.Header["Content-Type"][0],
+		Size:        file.Size,
+		StoragePath: storagePath,
+	}
+	err := db.Conn().Create(&media).Error
+	return media, err
+}
+
+// 获取媒体文件
+func GetMedia(name string) (model.Media, error) {
+	var media model.Media
+	err := db.Conn().Where(&model.Media{Name: name}).First(&media).Error
+	if errors.Is(err, gorm.ErrRecordNotFound) {
+		err = errors.New("文件不存在")
+	}
+	return media, err
 }

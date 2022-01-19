@@ -34,5 +34,6 @@ func Migrate() {
 	conn.AutoMigrate(
 		&model.User{},
 		&model.Star{},
+		&model.Media{},
 	)
 }

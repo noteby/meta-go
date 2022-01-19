@@ -17,7 +17,7 @@ func TimeSince(t time.Time) string {
 	minutes := duration.Minutes()
 	seconds := duration.Seconds()
 
-	if hours > 23 {
+	if hours > 24 {
 		if hours < 24*31 {
 			since = fmt.Sprintf("%d 天前", int(hours/24))
 		} else {

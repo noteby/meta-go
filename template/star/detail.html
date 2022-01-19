@@ -17,13 +17,24 @@
     {% if result.star %}
     <div class="title">{{ result.star.Title }}</div>
     <div class="attach">
-        <span class="item">发布于 {{result.star.CreatedAt.Format("2006/01/02 15:04:05")}}</span>
         {% if user.isLogin and user.id == result.star.AuthorID %}
         {% if result.star.UpdatedAt != result.star.CreatedAt %}
-        <span>更新于 {{ result.star.UpdatedAt.Format("2006/01/02 15:04:05") }}</span>
+        <div>
+            <span>更新于 {{ result.star.UpdatedAt.Format("2006/01/02 15:04:05") }}</span>
+        </div>
         {% endif %}
-        <span>状态：{% if result.star.Public %}公开{% else %}隐藏{% endif %}</span>
-        <span class="item"><a href="/star/my/edit?id={{result.star.ID}}">编辑</a></span>
+        <div class="publish">
+            <span>发布于 {{result.star.CreatedAt.Format("2006/01/02 15:04:05")}}</span>
+            <span>
+                <span>{% if result.star.Public %}公开{% else %}隐藏{% endif %} |</span>
+                <a href="/star/my/edit?id={{result.star.ID}}">编辑</a>
+            </span>
+        </div>
+        {% else %}
+        <div>
+            <span>发布于 {{result.star.CreatedAt.Format("2006/01/02 15:04:05")}}</span>
+        </div>
+
         {% endif %}
     </div>
     <hr>

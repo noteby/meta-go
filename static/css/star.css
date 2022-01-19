@@ -46,6 +46,7 @@
 
 .star-list .star .title {
     font-size: 18px;
+    margin: 5px 0px;
 }
 
 .star-list .star .title a {
@@ -53,9 +54,12 @@
 }
 
 .star-list .star .attach {
-    text-align: right;
+    text-align: left;
     font-size: x-small;
     color: #008C8C;
+
+    display: flex;
+    justify-content: space-between;
 }
 
 /* star detail */
@@ -70,12 +74,15 @@
 
 .star-detail .attach {
     font-size: x-small;
-    text-align: right;
+    color: #008C8C;
+    text-align: left;
     margin-top: 10px;
 }
 
-.star-detail .attach a {
+.star-detail .attach .publish {
     text-decoration: none;
+    display: flex;
+    justify-content: space-between;
 }
 
 .star-detail .content {

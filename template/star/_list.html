@@ -5,11 +5,13 @@
     <div class="star">
         <div class="title"><a href="/star/detail?id={{star.ID}}">{{ star.Title }}</a></div>
         <div class="attach">
+            <div class="item"><span>{{ star.CreatedAt|timesince }}发布</span></div>
             {% if result.listUrl == '/star/my/list' %}
-            <div>
+            <div class="item">
                 {% if star.UpdatedAt != star.CreatedAt %}
-                <span>{{ star.UpdatedAt|timesince }} 更新过</span> |
+                <span>{{ star.UpdatedAt|timesince }}更新过</span> |
                 {% endif %}
+
                 {% if star.Public %}
                 <span>公开</span>
                 {% else %}
@@ -17,9 +19,6 @@
                 {% endif %}
             </div>
             {% endif %}
-            <div>
-                <span>发布于 {{ star.CreatedAt|timesince }}</span>
-            </div>
         </div>
     </div>
     {% if not forloop.Last %}

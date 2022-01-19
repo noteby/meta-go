@@ -108,7 +108,11 @@ func (handler) detail() fiber.Handler {
 		if err != nil {
 			return c.Render("star/detail", view.RespWithWarn(c, err.Error()))
 		}
-		return c.Render("star/detail", view.Resp(c, fiber.Map{"star": star}))
+		user := c.UserContext().Value("user").(model.User)
+		if star.Public == true || star.AuthorID == user.ID {
+			return c.Render("star/detail", view.Resp(c, fiber.Map{"star": star}))
+		}
+		return c.Render("star/detail", view.RespWithWarn(c, "记录不存在"))
 	}
 }
 

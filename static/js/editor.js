@@ -45,9 +45,13 @@ $(document).ready(function () {
 
         // General
         attribution: false,
+        disableRightClick: true,
         // fullPage: true,
-        height: 400,
+        heightMax: 550,
+        htmlAllowComments: false,
         // iframe: true,
+        pastePlain: true,
+        placeholderText: "Type your idea ...",
         spellcheck: false,
         tabSpaces: 4,
         toolbarButtons: toolbarButtons,

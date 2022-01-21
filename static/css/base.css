@@ -6,26 +6,27 @@ html, body {
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (min-width: 768px) {
     html, body {
-        margin: 0 40px;
+        margin: 0 50px;
     }
 } 
 
 /* Large devices (laptops/desktops, 992px and up) */
 @media only screen and (min-width: 992px) {
     html, body {
-        margin: 0 80px;
+        margin: 0 100px;
     }
 } 
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */
 @media only screen and (min-width: 1200px) {
     html, body {
-        margin: 0 120px;
+        margin: 0 150px;
     }
 }
 
 body div.container {
     height: 100%;
+    width: 100%;
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;

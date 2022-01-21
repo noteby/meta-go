@@ -3,27 +3,6 @@
     margin: 30px 10px;
 }
 
-/* Medium devices (landscape tablets, 768px and up) */
-@media only screen and (min-width: 768px) {
-    .star-list {
-        margin: 30px 100px;
-    }
-} 
-
-/* Large devices (laptops/desktops, 992px and up) */
-@media only screen and (min-width: 992px) {
-    .star-list {
-        margin: 30px 180px;
-    }
-} 
-
-/* Extra large devices (large laptops and desktops, 1200px and up) */
-@media only screen and (min-width: 1200px) {
-    .star-list {
-        margin: 30px 240px;
-    }
-}
-
 .empty-star-list {
     margin-top: 200px;
     text-align: center;
